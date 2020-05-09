@@ -1,0 +1,125 @@
+@import 'variables';
+
+.navbar {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+
+    .links {
+        display: flex;
+        justify-content: flex-end;
+        list-style-type: none;
+        margin-right: 20px;
+        width: 100%;
+    }
+
+    .link{
+        margin: 0px 15px;
+        font-size: 1.2em;
+        color: $text-color;
+        @include transitionEase; 
+
+        &:hover{
+           background: yellow;
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    z-index: 10;
+
+    .toggler {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 75%;
+        width: 75%;
+        opacity: 0;
+        z-index: 15;
+        cursor: pointer;
+    }
+
+    span{
+        position: absolute;
+        height: 3.5px;
+        width: 28px;
+        background: $quad-color;
+        opacity: 0.6;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            height: 3.5px;
+            width: 40px;
+            background: $tri-color;
+        }
+    }
+}
+
+.showmenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba($primary-color, 0.98);
+    overflow: hidden;
+    @include transitionEase;
+        
+        &.open {
+            height: 100vh;
+        }
+
+    .showlinks {
+        list-style-type: none;
+        
+
+        .showlink {
+            margin: 15px 0px;
+            font-size: 1.5em;
+            transform: translateX(100vw);
+
+            &.open {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+.logo {
+    position: absolute;
+    top: 2%;
+    left: 45%;
+
+    span {
+        font-family: Plaster;
+        font-size: 5em;
+        color: $secondary-color;
+        text-shadow: black 2px 2px 2px;
+    }
+
+}
+
+@for $i from 1 through 4 {
+    .showlinks li:nth-child(#{$i}) {
+        @include transitionEase;
+        transition-delay: ($i * 0.3s); 
+        color: $quad-color;
+        text-transform: uppercase;
+    }
+}

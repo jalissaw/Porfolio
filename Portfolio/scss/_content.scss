@@ -1,0 +1,140 @@
+@import 'variables';
+
+main {
+    // height: 100%;
+    width: 100%;
+
+    .project {
+        overflow: hidden;
+
+        .main-title {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 20px; 
+            
+            .project-title {
+                @include contentTitles;
+                color: $secondary-color;
+
+    
+                &:before {
+                    content:'';
+                    position: absolute;
+                    background: $tri-color;
+                    top: 40%;
+                    left: -100px;
+                    width: 50%;
+                    height: 5px;
+                }
+
+                &:after {
+                    content:'';
+                    position: absolute;
+                    background: $tri-color;
+                    top: 40%;
+                    right: -100px;
+                    width: 50%;
+                    height: 5px;
+                }
+            }
+        }
+        
+        .card-group {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap; 
+            
+            .card {
+                height: 375px;
+                width: 350px;
+                
+                .img {
+                    height: 250px;
+                    width: 100%;
+                }
+            
+                .card-info {
+                    color: $primary-color;
+                }
+
+                .btn{
+                    font-size: 0.9em;
+                    border: none;
+                    width: 150px;
+                    padding: 15px 25px;
+                    cursor: pointer;
+                    border-radius: 2px;
+                    margin-top: 10px;
+                    border: black 1px solid;
+                }
+
+                .viewsource {
+                    background: $quad-color;
+                    margin-left: 10px;
+                    margin-right: 20px;
+                }
+
+                .viewweb {
+                    background: $primary-color;
+                }
+            }
+        
+        } 
+        
+    }//project tag
+        //about section
+
+    .about {
+        width: 100%;
+        
+        .a-title {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+
+            .about-title {
+                @include contentTitles;
+                color: $tri-color;
+                
+                &:before {
+                    @include divideBefore;
+                    background: $secondary-color;
+                }
+
+                &:after {
+                    @include divideAfter;
+                    background: $secondary-color;
+                }
+            }
+        }
+    }   .about-info {
+            margin: 0 auto;
+            max-width: 75%;
+            text-align: center;
+        }
+
+        .experience {
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center; 
+            flex-wrap: wrap;
+            margin-top: 30px;
+
+            .sub-experience {
+                max-width: 300px;
+                background: $quad-color;
+                padding: 10px 10px;
+
+                .fab, .fas {
+                    font-size: 2.4em;
+                    color: $primary-color;
+                    margin-bottom: 15px;
+                }
+                .exp-info {
+                    max-width: auto;
+                }
+            }
+        }
+}
+

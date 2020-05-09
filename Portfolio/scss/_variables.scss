@@ -1,0 +1,113 @@
+$primary-color: rgb(146, 55, 146);
+$secondary-color: rgb(55, 0, 87);
+$text-color: rgb(255, 75, 216);
+$tri-color: rgb(255, 20, 243);
+$quad-color: rgb(255, 195, 232);
+
+
+@mixin transitionEase {
+    transition: all ease-in-out 0.3s;
+}
+
+@for $i from 1 through 4 {
+    .showlinks li:nth-child(#{$i}) {
+        @include transitionEase;
+        transition-delay: ($i * 0.3s); 
+        color: $quad-color;
+        text-transform: uppercase;
+    }
+}
+
+@mixin moveBg {
+    background-size: 400%;
+    animation: bg 8s infinite alternate;
+}
+
+@mixin divideBefore {
+    content:'';
+    position: absolute;
+    background: $tri-color;
+    top: 40%;
+    left: -100px;
+    width: 50%;
+    height: 5px;
+}
+
+@mixin divideAfter {
+    content:'';
+    position: absolute;
+    background: $tri-color;
+    top: 40%;
+    right: -100px;
+    width: 50%;
+    height: 5px;
+}
+
+@mixin contentTitles {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin-top: 20px;
+    font-weight: 600;
+    width: 50%;
+
+}
+
+
+// main {
+//     height: 100%;
+//     width: 100%;
+
+//     .project {
+//         position: relative;
+//         overflow: hidden;
+//     }
+
+//     .main-title {
+//         text-align: center;
+//         margin-bottom: 20px;
+
+//         .project-title {
+//             text-transform: uppercase;
+//             color: $secondary-color;
+//             font-size: 1.5em;
+//             margin-top: 20px;
+//             font-weight: 600;
+
+//             &:before {
+//                 content:'';
+//                 position: absolute;
+//                 background: $tri-color;
+//                 color: $quad-color;
+//                 top: 50%;
+//                 left: 0;
+//                 width: 250px;
+//                 height: 5px;
+//                 }
+//             }
+
+//         }
+        
+//     }
+        
+//         .card-group {
+//             display: flex;
+//             justify-content: space-evenly;
+//             flex-wrap: wrap; 
+
+//             .card {
+//                 height: 400px;
+//                 width: 350px;
+
+//                 .img {
+//                     height: 250px;
+//                     width: 100%;
+//                 }
+                
+//                 .card-info {
+//                     color: $primary-color;
+//                 }
+//             }
+//         }
+
+// }

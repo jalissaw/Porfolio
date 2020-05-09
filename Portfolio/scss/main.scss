@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Bungee+Inline&family=Coda+Caption:wght@800&family=Ewert&family=Frijole&family=Modak&family=Piedra&family=Plaster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@200&display=swap');
+@import 'nav';
+@import 'variables';
+@import 'content';
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Aldrich;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: 
+    linear-gradient(
+        to right, rgba($primary-color, 0.55), 
+                  rgba($secondary-color, 0.55)
+    ),
+    url("/img/giphy.gif") center top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+   
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+
+      
+        .heading{
+            font-size: 4.5em;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+            
+            .firstname{
+                color: $text-color;
+            }
+        }
+        
+        .info {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            font-size: 1.3em;
+            font-weight: 600;
+            width: 175px;
+            padding: 15px 20px;
+            margin-top: 15px;
+            border: black 2px solid;
+            border-radius: 5px;
+            background: $text-color;
+            box-shadow: black 0.2px 0.5px 1px;
+            z-index: 1;
+            cursor: pointer;
+            position: relative;
+            transition: ease-out 0.025s ;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 0;
+                width: 100%;
+                background: rgba($secondary-color, 0.8);
+                transform-origin: top left;
+                z-index: -1;
+                @include transitionEase;
+            }
+            
+            &:hover::before{
+                transform-origin: bottom;
+                height: 100%;
+            }
+            &.open{
+                visibility: hidden;
+            }
+
+        }
+
+        hr{
+            width: 75%;
+            background: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    .statement{
+        position: absolute;
+        bottom: 0;
+    }
+}
